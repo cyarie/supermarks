@@ -15,11 +15,11 @@ class BookMark(models.Model):
     short_url = models.CharField(max_length=255)
     create_dt = models.DateTimeField(auto_now_add=True)
     mod_dt = models.DateTimeField(auto_now=True)
-    tags = models.ManyToManyField(Tags, related_name='bookmarks')
+    tags = models.ManyToManyField(Tag, related_name='bookmarks')
 
 
 class MarkUser(models.Model):
     user = models.OneToOneField(User)
-    bookmarks = models.ManyToManyField(BookMarks, related_name='bookmarks')
+    bookmarks = models.ManyToManyField(BookMark, related_name='bookmarks')
 
 
