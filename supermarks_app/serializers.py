@@ -32,10 +32,10 @@ class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         markuser = MarkUser.user(
-            username=validated_data['user']['username'],
-            email=validated_data['user']['email'],
-            first_name=validated_data['user']['first_name'],
-            last_name=validated_data['user']['last_name']
+            username=validated_data['username'],
+            email=validated_data['email'],
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name']
         )
         markuser.set_password(validated_data['user']['password'])
         markuser.save()
