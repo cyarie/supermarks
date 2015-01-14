@@ -20,11 +20,13 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
 class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
     username = serializers.CharField(source='user.username')
     email = serializers.CharField(source='user.email')
+    first_name = serializers.CharField(source='user.first_name')
+    last_name = serializers.CharField(source='user.last_name')
     bookmarks = serializers.HyperlinkedRelatedField(many=True, view_name='bookmark-detail', read_only=True)
 
     class Meta:
         model = MarkUser
-        fields = ('id', 'username', 'password', 'first_name', 'last_name', 'email', 'bookmarks')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'bookmarks')
 
     def restore_object(self, attrs, instance=None):
         """
