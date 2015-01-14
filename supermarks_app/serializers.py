@@ -27,6 +27,3 @@ class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MarkUser
         fields = ('id', 'username', 'first_name', 'last_name', 'email', 'bookmarks')
-
-    def create(self, validated_data):
-        return User.objects.create(**validated_data)
