@@ -4,7 +4,7 @@ from supermarks_app.models import User, BookMark, Tag
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    bookmarks = serializers.ManyRelatedField()
+    bookmarks = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = User
@@ -12,7 +12,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class BookMarkSerializer(serializers.HyperlinkedModelSerializer):
-    tags = serializers.ManyRelatedField()
+    tags = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = BookMark
