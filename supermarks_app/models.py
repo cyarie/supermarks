@@ -20,6 +20,7 @@ class BookMark(models.Model):
     create_dt = models.DateTimeField(auto_now_add=True)
     mod_dt = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(Tag, related_name='bookmarks')
+    category = models.CharField(max_length=255)
 
     def __unicode__(self):
         return self.title
