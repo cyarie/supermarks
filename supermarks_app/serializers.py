@@ -37,6 +37,6 @@ class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
             first_name=validated_data['user']['first_name'],
             last_name=validated_data['user']['last_name']
         )
-        user.set_password(validated_data['password'])
+        user.set_password(validated_data['user']['password'])
         user.save()
         return user
