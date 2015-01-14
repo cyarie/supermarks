@@ -24,4 +24,4 @@ class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = MarkUser
-        fields = ('id', 'username', 'bookmarks')
+        fields = ('id', 'username', 'email', 'bookmarks')
