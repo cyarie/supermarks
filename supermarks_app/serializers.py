@@ -31,8 +31,8 @@ class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = MarkUser(
-            username=validated_data['username'],
+        user = User(
+            username=validated_data['user']['username'],
             email=validated_data['user']['email'],
             first_name=validated_data['user']['first_name'],
             last_name=validated_data['user']['last_name']
