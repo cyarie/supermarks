@@ -1,6 +1,6 @@
 from django.forms import widgets
 from rest_framework import serializers
-from supermarks_app.models import User, BookMark, Tag
+from supermarks_app.models import MarkUser, BookMark, Tag
 
 
 class BookMarkSerializer(serializers.HyperlinkedModelSerializer):
@@ -17,9 +17,9 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('tag_id', 'tag')
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    bookmarks = BookMarkSerializer(many=True)
+class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
+    bookmarks = serializers.StringRelatedField(many=True)
 
     class Meta:
-        model = User
+        model = MarkUser
         fields = ('id', 'username', 'email', 'bookmarks')
