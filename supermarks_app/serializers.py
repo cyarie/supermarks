@@ -3,7 +3,7 @@ from rest_framework import serializers
 from supermarks_app.models import MarkUser, BookMark, Tag, User
 
 
-class BookMarkSerializer(serializers.HyperlinkedModelSerializer):
+class BookMarkSerializer(serializers.ModelSerializer):
     tags = serializers.StringRelatedField(many=True)
 
     class Meta:
@@ -11,13 +11,13 @@ class BookMarkSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('bookmark_id', 'long_url', 'short_url', 'title', 'tags', 'category')
 
 
-class TagSerializer(serializers.HyperlinkedModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ('tag_id', 'tag')
 
 
-class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
+class MarkUserSerializer(serializers.ModelSerializer):
     bookmarks = serializers.HyperlinkedRelatedField(many=True, view_name='bookmark-detail', read_only=True)
 
     class Meta:
