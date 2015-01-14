@@ -30,6 +30,6 @@ class MarkUser(models.Model):
     bookmarks = models.ManyToManyField(BookMark, related_name='bookmarks')
 
     def __unicode__(self):
-        return self.username
+        return User.username
 
 
