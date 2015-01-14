@@ -4,7 +4,7 @@ from rest_framework import routers
 from supermarks_app import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.MarkUserViewSet)
+router.register(r'users', views.UserViewSet)
 router.register(r'bookmarks', views.BookMarkViewSet)
 router.register(r'tags', views.TagViewSet)
 

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 
 class Tag(models.Model):
@@ -26,11 +26,10 @@ class BookMark(models.Model):
         return self.title
 
 
-class MarkUser(models.Model):
-    user = models.OneToOneField(User)
+class User(AbstractUser):
     bookmarks = models.ManyToManyField(BookMark, related_name='bookmarks')
 
     def __unicode__(self):
-        return self.user.username
+        return self.username
 
 

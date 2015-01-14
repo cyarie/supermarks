@@ -1,11 +1,11 @@
-from supermarks_app.models import MarkUser, BookMark, Tag
+from supermarks_app.models import User, BookMark, Tag
 from rest_framework import viewsets
-from supermarks_app.serializers import MarkUserSerializer, BookMarkSerializer, TagSerializer
+from supermarks_app.serializers import UserSerializer, BookMarkSerializer, TagSerializer
 
 
-class MarkUserViewSet(viewsets.ModelViewSet):
-    queryset = MarkUser.objects.all()
-    serializer_class = MarkUserSerializer
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class BookMarkViewSet(viewsets.ModelViewSet):
