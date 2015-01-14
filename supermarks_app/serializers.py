@@ -29,4 +29,4 @@ class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'username', 'first_name', 'last_name', 'email', 'bookmarks')
 
     def create(self, validated_data):
-        return User.objects.create(**validated_data)
+        return MarkUser.objects.create(**validated_data)
