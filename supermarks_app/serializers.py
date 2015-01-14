@@ -20,7 +20,7 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
 class MarkUserSerializer(serializers.HyperlinkedModelSerializer):
     username = serializers.CharField(source='user.username')
     email = serializers.CharField(source='user.email')
-    bookmarks = serializers.StringRelatedField(source='MarkUser.bookmarks', many=True)
+    bookmarks = serializers.StringRelatedField(source='bookmarks', many=True)
 
     class Meta:
         model = MarkUser
