@@ -4,7 +4,7 @@ from supermarks_app.models import User, BookMark, Tag
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    bookmarks = serializers.StringRelatedField(many=True)
+    bookmarks = BookMarkSerializer(source='bookmark_group', many=True)
 
     class Meta:
         model = User
