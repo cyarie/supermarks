@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
-from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 
 class Tag(models.Model):
@@ -48,7 +48,7 @@ class AuthUserManager(BaseUserManager):
         return user
 
 
-class MarkUser(AbstractUser, PermissionsMixin):
+class MarkUser(AbstractBaseUser, PermissionsMixin):
     alphanumeric = RegexValidator(r'[0-9a-zA-Z]*$', message='Please only use alphanumeric characters.')
 
     username = models.CharField(unique=True, max_length=20, validators=[alphanumeric])
